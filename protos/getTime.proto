@@ -1,0 +1,39 @@
+syntax = "proto3";
+package getTime;
+
+service getTime{
+  rpc GetTimeAtZone(TimeRequest) returns (TimeOfDay);
+}
+
+message TimeRequest{
+  enum timeZone {
+       AB = 0;
+       AD = 1;
+       ADC =2;
+       AE = 3;
+       AJ = 4;
+       ALA = 5;
+       AM = 6;
+       ASI = 7;
+       AS = 8;
+       AT = 9;
+       AV = 10;
+       AW = 11;
+       CP = 12;
+       CY = 13;
+       MBN = 14;
+       PST8PDT =15;
+       USP = 16;
+       USPN = 17;
+       EUBlN = 18;
+  }
+  timeZone tz = 1;
+}
+
+message TimeOfDay {
+  int32 hours = 1;
+
+  int32 minutes = 2;
+
+  int32 seconds = 3;
+}
